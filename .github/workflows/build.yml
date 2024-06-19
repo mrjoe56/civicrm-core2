@@ -1,11 +1,3 @@
-definitions:
-  services:
-    docker-high-memory:
-      memory: 4096
-      type: docker
-  caches:
-    sonar: ~/.sonar/cache  # Caching SonarCloud artifacts will speed up your build
-    
 name: Build
 on:
   push:
