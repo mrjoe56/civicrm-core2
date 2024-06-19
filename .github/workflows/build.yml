@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - master
-      - 5.27
+      - branch-5.*
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
@@ -19,4 +19,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-   
+          SONAR_SCANNER_OPTS: "-Xmx1024m -Xms512m"
+          _JAVA_OPTIONS: "-Xmx4G -Xms4G -XX:MaxRAMPercentage=80 -XX:MinRAMPercentage=50"
