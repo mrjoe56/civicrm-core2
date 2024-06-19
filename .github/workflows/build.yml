@@ -1,3 +1,11 @@
+definitions:
+  services:
+    docker-high-memory:
+      memory: 4096
+      type: docker
+  caches:
+    sonar: ~/.sonar/cache  # Caching SonarCloud artifacts will speed up your build
+    
 name: Build
 on:
   push:
@@ -19,12 +27,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-
-definitions:
-  services:
-    docker-high-memory:
-      memory: 4096
-      type: docker
-  caches:
-    sonar: ~/.sonar/cache  # Caching SonarCloud artifacts will speed up your build
    
